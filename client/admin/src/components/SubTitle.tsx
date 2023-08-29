@@ -1,4 +1,4 @@
-const SubTitle = (props) => {
+const SubTitle = (props: { setCont: any; }) => {
     const {setCont} = props;
     const increment = () => {
         setCont

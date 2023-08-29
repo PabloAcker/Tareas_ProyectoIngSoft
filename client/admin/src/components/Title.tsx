@@ -1,4 +1,4 @@
-const Title = (props) => {
+const Title = (props: { description: any; color: any; setCont: any; cont: any; }) => {
     // Destructura objetos
     const { description, color, setCont, cont } = props;
     // const description = props.description;
