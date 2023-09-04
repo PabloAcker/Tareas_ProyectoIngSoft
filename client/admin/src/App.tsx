@@ -1,10 +1,10 @@
 import "./App.css";
-import StudentCard from "./components/StudentCard";
+import { Component } from "react";
 
 function App() {
   return (
     <>
-      <StudentCard/>
+      <Component name="Emanuel Lozano"/>
     </>
   );
 }
