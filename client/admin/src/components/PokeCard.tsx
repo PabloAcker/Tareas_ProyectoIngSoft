@@ -13,7 +13,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { getPokemonById, postPokemonsCaptured } from '../services/pokemonService';
 
-export default function PokeCard(props: { pokemonId: any; }:any) {
+export default function PokeCard(props: { pokemonId: any; }) {
   const {pokemonId} = props;
   const [pokemon, setPokemon] = useState<any>(null);
   console.log("🚀 ~ file: PokeCard.tsx:35 ~ PokeCard ~ pokemonId:", pokemonId)
