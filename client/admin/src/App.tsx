@@ -1,9 +1,10 @@
 import "./App.css";
-import Pokedeck from './components/Pokedeck';
+import StudentCard from "./components/StudentCard";
+
 function App() {
   return (
     <>
-      <Pokedeck/>
+      <StudentCard/>
     </>
   );
 }

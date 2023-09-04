@@ -1,13 +1,13 @@
 const express = require("express");
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/config/swagger');
-
+const cors = require('cors')
 const routes = require("./src/routes/api");
 
 
 // Creando el servidor
 const app = express();
-
+app.use(cors());
 // Leer contenido json dentro del body
 app.use(express.json());
 

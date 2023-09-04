@@ -13,9 +13,18 @@ export const pokeAPI = axios.create({
 });
 
 const INTERNAL_API = 'http://localhost:5000/';
-
 export const internarAPI = axios.create({
     baseURL: INTERNAL_API, // Cambia esta URL por tu API
+    timeout: 10000, // Tiempo máximo de espera para las solicitudes (en milisegundos)
+    headers: {
+        'Content-Type': 'application/json',
+        // Aquí puedes agregar otros encabezados si es necesario
+    },
+});
+
+const AUX_API = 'http://localhost:3000/';
+export const auxAPI = axios.create({
+    baseURL: AUX_API, // Cambia esta URL por tu API
     timeout: 10000, // Tiempo máximo de espera para las solicitudes (en milisegundos)
     headers: {
         'Content-Type': 'application/json',
