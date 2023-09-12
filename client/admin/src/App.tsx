@@ -1,11 +1,10 @@
-import "./App.css";
-import LoginForm from "./components/Component";
+import Calculator from "./components/Calculator";
 
 
 function App() {
   return (
     <>
-      <LoginForm/>
+      <Calculator/>
     </>
   );
 }
