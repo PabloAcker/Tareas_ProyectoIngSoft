@@ -16,9 +16,9 @@ const Calculator: React.FC = () => {
     } else if (value === '%') {
       try {
         const result = eval(input) / 100;
-        setInput(result.toString());
+        setOutput(result.toString());
       } catch (error) {
-        setInput('Error');
+        setOutput('Error');
       }
     } else {
       setInput(input + value);
