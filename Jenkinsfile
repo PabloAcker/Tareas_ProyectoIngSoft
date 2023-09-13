@@ -4,14 +4,20 @@ pipeline {
         nodejs 'node20'
     }
     stages {
-        stage('Build') {
+        stage('Dependencies') {
             steps {
-                sh 'cd client/admin & npm install'
+                sh 'cd client/admin && npm install'
+            }
+        }
+         stage('Build') {
+            steps {
+                sh 'cd client/admin'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'cd client/admin && npm run test'
+                sh 'cd client/admin && npm run e2e'
             }
         }
         stage('Deploy') {
