@@ -26,7 +26,7 @@ const getSubjects = async () => {
 
 const getSubjectById = async (id) => {
     try {
-      const subject = await db(SUBJECT_TABLE).select("*").where(id);
+      const subject = await db(SUBJECT_TABLE).select("*").where('id', id);
       logger.info('getSubjectById response', subject);
       const subjectJson = subject.map((row) => ({
         id: row.id,
@@ -64,7 +64,7 @@ const getSubjectById = async (id) => {
 
   const updateSubaject = async (subject, id) => {
     try {
-      const subjectResponse = await db(SUBJECT_TABLE).insert(subject).select("*").where(id);
+      const subjectResponse = await db(SUBJECT_TABLE).insert(subject).select("*").where('id', id);
       logger.info('updateSubaject response', subjectResponse);
       const subjectJson = subjectResponse.map((row) => ({
         id: row.id,
@@ -83,7 +83,7 @@ const getSubjectById = async (id) => {
 
   const deleteSubject = async (id) => {
     try {
-      const subjectResponse = await db(SUBJECT_TABLE).select("*").where(id);
+      const subjectResponse = await db(SUBJECT_TABLE).select("*").where('id', id);
       logger.info('deleteSubject response', subjectResponse);
       const subjectJson = subjectResponse.map((row) => ({
         id: row.id,

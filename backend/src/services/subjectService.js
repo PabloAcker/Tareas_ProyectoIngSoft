@@ -61,8 +61,4 @@ const getSubjectByIdService = async (id) => {
     }
   };
 
-module.exports =  getSubjectsService;
-module.exports =  getSubjectByIdService;
-module.exports =  createSubjectService;
-module.exports =  updateSubajectService;
-module.exports =  deleteSubjectService;
+module.exports = { getSubjectsService, getSubjectByIdService, createSubjectService, updateSubajectService, deleteSubjectService};

@@ -3,7 +3,6 @@ const logger = require('../utils/logger');
 const getSubjectsController = async (req, res) => {
     logger.info('getSubjectsController - Req', req);
     try {
-        //const users = await getUserService();
         return res.status(200).json({
             success: true,
             message: 'Subjects retrieved successfully',
@@ -21,12 +20,16 @@ const getSubjectsController = async (req, res) => {
 
 const getSubjectByIdController = async (req, res) => {
     logger.info('getSubjectByIdController - Req', req);
+    const { params } = req;
+    logger.info('getSubjectByIdController - Params', params);
+    const { id } = params;
+    logger.info('getSubjectByIdController - Id', id);
     try {
-        //const users = await getUserService();
+        const subject = await getSubjectByIdService(id);
         return res.status(200).json({
             success: true,
             message: 'Subject retrieved successfully',
-            data: []
+            data: subject
         });
     } catch (error) {
         return res.status(500).json({
@@ -40,12 +43,14 @@ const getSubjectByIdController = async (req, res) => {
 
 const postSubjectController = async (req, res) => {
     logger.info('postSubjectController - Req', req);
+    const { body } = req;
+    logger.info('postSubjectController - Body', body);
     try {
-        //const users = await getUserService();
+        const subject = await createSubjectService(body);
         return res.status(200).json({
             success: true,
             message: 'Subject created successfully',
-            data: []
+            data: subject
         });
     } catch (error) {
         return res.status(500).json({
@@ -59,12 +64,16 @@ const postSubjectController = async (req, res) => {
 
 const putSubjectController = async (req, res) => {
     logger.info('putSubjectController - Req', req);
+    const { body } = req;
+    logger.info('putSubjectController - Params', params);
+    const { id } = params;
+    logger.info('putSubjectController - Id', id);
     try {
-        //const users = await getUserService();
+        const subject = await updateSubajectService(body, id);
         return res.status(200).json({
             success: true,
             message: 'Subject updated successfully',
-            data: []
+            data: subject
         });
     } catch (error) {
         return res.status(500).json({
@@ -78,12 +87,16 @@ const putSubjectController = async (req, res) => {
 
 const deleteSubjectController = async (req, res) => {
     logger.info('deleteSubjectController - Req', req);
+    const { params } = req;
+    logger.info('deleteSubjectController - Params', params);
+    const { id } = params;
+    logger.info('deleteSubjectController - Id', id);
     try {
-        //const users = await getUserService();
+        const subject = await deleteSubjectService(id);
         return res.status(200).json({
             success: true,
             message: 'Subject deleted successfully',
-            data: []
+            data: subject
         });
     } catch (error) {
         return res.status(500).json({
@@ -95,8 +108,4 @@ const deleteSubjectController = async (req, res) => {
     
 };
 
-module.exports = getSubjectsController;
-module.exports = getSubjectByIdController;
-module.exports = postSubjectController;
-module.exports = putSubjectController;
-module.exports = deleteSubjectController;
+module.exports = { getSubjectsController, getSubjectByIdController, postSubjectController, putSubjectController, deleteSubjectController};
