@@ -17,7 +17,8 @@ const { getSubjectsController,
  *       200:
  *         description: Lista de usuarios obtenida exitosamente
  */
-router.get('/user', checkAuth,  getUserController);
+router.get('/user',  getUserController);
+
 
 const SUBJECT_ROUTE = '/subjects'
 

@@ -1,12 +1,19 @@
 const logger = require('../utils/logger');
+const { getSubjectsService,
+        getSubjectByIdService, 
+        createSubjectService, 
+        updateSubajectService, 
+        deleteSubjectService
+    } = require('../services/subjectService');
 
 const getSubjectsController = async (req, res) => {
     logger.info('getSubjectsController - Req', req);
     try {
+        const subjects = await getSubjectsService();
         return res.status(200).json({
             success: true,
             message: 'Subjects retrieved successfully',
-            data: []
+            data: subjects
         });
     } catch (error) {
         return res.status(500).json({

@@ -4,7 +4,7 @@ const logger = require('../utils/logger');
 const getSubjectsService = async () => {
   try {
     logger.info("getSubjectsService - Fetching subjects from the database"); 
-    const subjects = await subjectRepository.getSubjects;
+    const subjects = await subjectRepository.getSubjects();
     logger.info("getSubjectsService - Subjects fetched successfully!");
     return subjects;
   } catch (error) {
@@ -27,12 +27,12 @@ const getSubjectByIdService = async (id) => {
 
   const createSubjectService = async (subject) => {
     try {
-      logger.info("createSubjectService - Fetching subject by id from the database"); 
+      logger.info("createSubjectService - Fetching subject from the database"); 
       const subjectBody = await subjectRepository.createSubject(subject);
       logger.info("createSubjectService - Subject fetched successfully!");
       return subjectBody;
     } catch (error) {
-      logger.error("createSubjectService - Error fetching subject by id", error); 
+      logger.error("createSubjectService - Error fetching subject", error); 
       throw error;
     }
   };
