@@ -36,6 +36,7 @@ const Calculator: React.FC = () => {
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <TextField
+              aria-label="input-field"
               sx={{ width: '100%', marginBottom: '1rem', backgroundColor: 'lightgray' }}
               variant="outlined"
               value={input}
@@ -45,15 +46,17 @@ const Calculator: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              aria-label="output-field"
               sx={{ width: '100%', marginBottom: '1rem', backgroundColor: 'lightgray' }}
               variant="outlined"
               value={output}
-              InputProps={{ style: { fontSize: '3rem', textAlign: 'right'} }}
+              InputProps={{ readOnly: true, style: { fontSize: '3rem', textAlign: 'right'} }}
             />
           </Grid>
           {['+', '-', '*', '/', '%', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0', '.'].map((buttonValue, index) => (
             <Grid item xs={3} key={index}>
               <Button
+                aria-label={`button-${buttonValue}`}
                 variant="contained"
                 sx={{ width: '100%', height: '100%', fontSize: '2rem', backgroundColor: 'grey' }}
                 onClick={() => handleButtonClick(buttonValue)}
@@ -63,12 +66,18 @@ const Calculator: React.FC = () => {
             </Grid>
           ))}
           <Grid item xs={6}>
-            <Button variant="contained" sx={{ width: '100%', height: '100%', fontSize: '2rem', backgroundColor: 'grey' }} onClick={clearInput}>
+            <Button 
+              aria-label="button-clear" 
+              variant="contained" 
+              sx={{ width: '100%', height: '100%', fontSize: '2rem', backgroundColor: 'grey' }} 
+              onClick={clearInput}
+            >
               Clear
             </Button>
           </Grid>
           <Grid item xs={6}>
             <Button
+              aria-label="button-equals"
               variant="contained"
               color="primary"
               sx={{ width: '100%', height: '100%', fontSize: '2rem', backgroundColor: 'grey' }}
